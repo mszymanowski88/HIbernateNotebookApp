@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        #notebook {
+            font-family: Arial, Helvetica, sans-serif;
+            border-collapse: collapse;
+            width: 100%;
+            text-align: center;
+        }
+
+        #notebook td, #customers th {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: center;
+        }
+
+        #notebook tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+
+        #notebook tr:hover {
+            background-color: #ddd;
+        }
+
+        #notebook th {
+            padding-top: 12px;
+            padding-bottom: 12px;
+            text-align: center;
+            background-color: #04AA6D;
+            color: white;
+
+        }
+    </style>
+
+</head>
+<body>
+<p style="background-color:#F0E68C; text-align: center ">===============Make your note============================ </p>
+<form method="post" th:action="@{/add}">
+    <textarea cols="100" rows="10" th:name="input" type="text"> </textarea>
+    <button type="submit">Save note</button>
+
+
+</form>
+
+<table id="notebook">
+    <tr>
+        <th>Id:</th>
+        <th>Date:</th>
+        <th>Note:</th>
+
+
+    </tr>
+
+    <tr th:each="memo: ${userInputs}">
+        <td th:text="${memo.getId()}"/>
+        </td>
+        </form>
+
+        <td th:text="${memo.getLocalDate()}"/>
+        </td>
+        <td th:text="${memo.getInput()}"/>
+        </td>
+        <td>
+            <form action="#" th:action="@{'/notebook/{id}'(id=${memo.getId()})}" th:method="get">
+
+                <button class="button" id="update" type="submit">Update</button>
+
+            </form>
+
+        </td>
+
+
+    </tr>
+
+</table>
+
+</body>
+</html>
