@@ -1,29 +1,28 @@
-package com.example.hibernatenotebookapp.newsrepo;
+package com.example.hibernatenotebookapp.models;
 
 import javax.persistence.*;
 import java.time.LocalDate;
 
 @Entity
 @Table(name = "inputs")
-public class News {
+public class Notebook {
 
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "Id")
-    Long id;
+    private Long id;
 
     @Column(name = "Inputs", length = 100000)
-    @Lob
-    String input;
+    private String input;
 
     @Column(name = "Date")
     private LocalDate localDate = LocalDate.now();
 
-    public News() {
+    public Notebook() {
     }
 
-    public News(String input) {
+    public Notebook(String input) {
         this.input = input;
     }
 

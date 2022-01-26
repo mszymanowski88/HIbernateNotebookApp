@@ -15,8 +15,8 @@ public class DbConfig {
         DataSourceBuilder dataSourceBuilder = DataSourceBuilder.create();
 
         dataSourceBuilder.url("jdbc:mysql://remotemysql.com/Xoaizfgh2D");
-        dataSourceBuilder.username("***** ***");
-        dataSourceBuilder.password("***** ***");
+        dataSourceBuilder.username("**** ***");
+        dataSourceBuilder.password("**** ***");
         dataSourceBuilder.driverClassName("com.mysql.cj.jdbc.Driver");
 
         return dataSourceBuilder.build();

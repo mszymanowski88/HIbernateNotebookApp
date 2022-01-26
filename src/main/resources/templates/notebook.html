@@ -38,8 +38,10 @@
 </head>
 <body>
 <p style="background-color:#F0E68C; text-align: center ">===============Make your note============================ </p>
-<form method="post" th:action="@{/add}">
-    <textarea cols="100" rows="10" th:name="input" type="text"> </textarea>
+
+
+<form method="post" th:action="@{/add}" th:object="${note}">
+    <textarea cols="100" rows="10" th:field="*{input}" type="text"> </textarea>
     <button type="submit">Save note</button>
 
 
@@ -63,6 +65,8 @@
         </td>
         <td th:text="${memo.getInput()}"/>
         </td>
+
+
         <td>
             <form action="#" th:action="@{'/notebook/{id}'(id=${memo.getId()})}" th:method="get">
 
@@ -72,8 +76,8 @@
 
         </td>
 
-
     </tr>
+
 
 </table>
 
